@@ -19,9 +19,35 @@ export class AppComponent implements OnInit {
     var chart = c3.generate({
       bindto: '#timeseriesChart',
       data: {
+        x: 'x',
         json: {
-          data1: data[0].close,
-          data2: data[1].close
+          x: [
+            'Day 1',
+            'Day 2',
+            'Day 3',
+            'Day 4',
+            'Election Day',
+            'Day 6',
+            'Day 7',
+            'Day 8',
+            'Day 9'
+          ],
+          2020: data[0].close,
+          2016: data[1].close,
+          2012: data[2].close,
+          2008: data[3].close,
+          2004: data[4].close
+        }
+      },
+
+      axis: {
+        x: {
+          type: 'category'
+        }
+      },
+      grid: {
+        x: {
+          lines: [{ value: 4, text: 'Election Day', position: 'middle' }]
         }
       }
     })
