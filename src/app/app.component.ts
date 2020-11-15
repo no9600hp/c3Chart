@@ -32,11 +32,7 @@ export class AppComponent implements OnInit {
             'Day 8',
             'Day 9'
           ],
-          2020: data[0].close,
-          2016: data[1].close,
-          2012: data[2].close,
-          2008: data[3].close,
-          2004: data[4].close
+          2020: data[0].close
         }
       },
 
@@ -51,5 +47,59 @@ export class AppComponent implements OnInit {
         }
       }
     })
+
+    setTimeout(function() {
+      chart.load({
+        json: {
+          2016: data[1].close
+        }
+      })
+      chart.unload({
+        ids: '2020'
+      })
+    }, 2000)
+
+    setTimeout(function() {
+      chart.load({
+        json: {
+          2012: data[2].close
+        }
+      })
+      chart.unload({
+        ids: ['2020', '2016']
+      })
+    }, 4000)
+    setTimeout(function() {
+      chart.load({
+        json: {
+          2008: data[3].close
+        }
+      })
+      chart.unload({
+        ids: ['2020', '2016', '2012']
+      })
+    }, 6000)
+    setTimeout(function() {
+      chart.load({
+        json: {
+          2004: data[4].close
+        }
+      })
+      chart.unload({
+        ids: ['2020', '2016', '2012', '2008']
+      })
+    }, 8000)
+
+    setTimeout(function() {
+      chart.load({
+        json: {
+          2020: data[0].close,
+          2016: data[1].close,
+          2012: data[2].close,
+          2008: data[3].close,
+          2004: data[4].close
+        }
+      })
+    }, 12000)
   }
 }
