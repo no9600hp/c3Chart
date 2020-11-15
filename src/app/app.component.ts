@@ -39,6 +39,9 @@ export class AppComponent implements OnInit {
       axis: {
         x: {
           type: 'category'
+        },
+        y: {
+          label: 'Closing Points'
         }
       },
       grid: {
